@@ -5,7 +5,7 @@ spring:
   application:
     name: config-service
   rabbitmq:
-    host: 43.200.42.197
+    host: 127.0.0.1
     port: 5672
     username: guest
     password: guest
@@ -15,13 +15,13 @@ spring:
     config:
       server:
         git:
-#          uri: file:///C:\Users\icore\Desktop\dowon\lge-msa\git-local-repo
-          uri: file:///Users/dowonlee_1/Desktop/git/lgcns-msa/git-local-repo2
+#          uri: file:///C:\Users\icore\Desktop\dowon\koscom-msa\git-local-repo
+          uri: file:///Users/dowonlee_1/Desktop/git/koscom-msa/git-local-repo2
 #          uri: https://github.com/joneconsulting/spring-cloud-config
           default-label: master
       enabled: true
 #        native:
-#          search-locations: file:///C:\Users\icore\Desktop\dowon\lge-msa\git-local-repo
+#          search-locations: file:///C:\Users\icore\Desktop\dowon\koscom-msa\git-local-repo
 
 management:
   endpoints:

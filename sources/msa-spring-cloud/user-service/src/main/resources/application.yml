@@ -5,14 +5,14 @@ server:
 spring:
   application:
     name: user-service
-#    zipkin:
-#      base-url: http://127.0.0.1:9411
-#      enabled: true
-#    sleuth:
-#      sampler:
-#        probability: 1.0
+#  zipkin:
+#    base-url: http://43.200.42.197:9411
+#    enabled: true
+#  sleuth:
+#    sampler:
+#      probability: 1.0
   rabbitmq:
-    host: 43.200.42.197
+    host: 127.0.0.1
     port: 5672
     username: guest
     password: guest

@@ -1,6 +1,7 @@
 package com.example.userservice.security;
 
 import com.example.userservice.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@Slf4j
 public class WebSecurity extends WebSecurityConfigurerAdapter {
     private UserService userService;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -27,12 +29,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
         http.authorizeRequests().antMatchers("/actuator/**").permitAll();
-        http.authorizeRequests().antMatchers("/health_check").permitAll();
+//        http.authorizeRequests().antMatchers("/health_check").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
-//        http.authorizeRequests().antMatchers("/users/**").permitAll();
-
-        http.authorizeRequests().antMatchers("/users/**")
-//                .hasIpAddress(env.getProperty("gateway.ip")) // <- IP 변경
+//        http.authorizeRequests().antMatchers("/users").permitAll();
+        http.authorizeRequests().antMatchers("/**")
 //                .hasIpAddress("192.168.10.135") // <- IP 변경
                 .access("hasIpAddress('192.168.10.135') or hasIpAddress('127.0.0.1')")
                 .and()
